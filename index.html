@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sacred Institute — 1,000 Enrolment Roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    background: #f8f9fc;
+    color: #1a1d2e;
+    min-height: 100vh;
+    padding-bottom: 60px;
+  }
+  input[type=number] { -moz-appearance: textfield; }
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+  /* ── Layout ── */
+  .header {
+    background: #fff;
+    border-bottom: 1px solid #e8eaf4;
+    padding: 32px 48px 26px;
+  }
+  .header-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .brand-icon {
+    background: #6366f1;
+    border-radius: 8px;
+    width: 30px; height: 30px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  .brand-name {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.12em; color: #6366f1;
+    text-transform: uppercase;
+  }
+  h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 26px; font-weight: 800;
+    color: #0f1123; line-height: 1.2;
+    margin-bottom: 5px;
+  }
+  .subtitle { color: #6b7299; font-size: 14px; }
+
+  .header-stats { display: flex; gap: 10px; flex-wrap: wrap; }
+  .stat-pill {
+    background: #f8f9fc;
+    border-radius: 10px;
+    padding: 12px 18px;
+    min-width: 110px;
+  }
+  .stat-pill .label {
+    font-size: 10px; color: #9ca3c0;
+    text-transform: uppercase; letter-spacing: 0.09em;
+    margin-bottom: 4px; font-weight: 500;
+  }
+  .stat-pill .value {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 22px; font-weight: 800;
+  }
+
+  .main { max-width: 1120px; margin: 0 auto; padding: 28px 48px 0; }
+
+  /* ── Cards ── */
+  .card {
+    background: #fff;
+    border: 1px solid #e8eaf4;
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.04);
+  }
+  .card-label {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; color: #9ca3c0;
+    text-transform: uppercase; margin-bottom: 16px;
+  }
+
+  /* ── Inputs grid ── */
+  .inputs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    align-items: start;
+  }
+  .input-group label {
+    display: block;
+    font-size: 12px; font-weight: 500;
+    color: #4b5280; margin-bottom: 8px;
+  }
+  .input-hint {
+    font-size: 11px; color: #b0b8d4;
+    margin-top: 6px;
+  }
+  .input-hint strong { font-weight: 600; }
+
+  .q1-btns { display: flex; gap: 8px; }
+  .q1-btn {
+    flex: 1; padding: 10px 4px;
+    border-radius: 8px;
+    border: 1.5px solid #e2e5ef;
+    background: #fff; color: #6b7299;
+    font-family: inherit; font-size: 13px;
+    font-weight: 600; cursor: pointer;
+    transition: all .2s;
+  }
+  .q1-btn.active {
+    background: #6366f1; border-color: #6366f1; color: #fff;
+  }
+  .q1-btn:hover:not(.active) {
+    border-color: #6366f1; color: #6366f1;
+  }
+
+  .input-row { display: flex; align-items: center; gap: 6px; }
+  .input-prefix, .input-suffix {
+    font-size: 13px; font-weight: 700; flex-shrink: 0;
+  }
+  .ci {
+    background: #fff;
+    border: 1.5px solid #e2e5ef;
+    border-radius: 8px;
+    color: #1a1d2e;
+    font-family: inherit;
+    font-size: 15px; font-weight: 600;
+    padding: 9px 12px; width: 100%;
+    transition: border-color .2s, box-shadow .2s;
+    text-align: right;
+  }
+  .ci:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99,102,241,.1);
+  }
+
+
+
+  /* ── Status banner ── */
+  .banner {
+    border-radius: 12px;
+    padding: 14px 22px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    border-width: 1.5px;
+    border-style: solid;
+  }
+  .banner-emoji { font-size: 20px; }
+  .banner-text { flex: 1; font-size: 14px; }
+  .banner-stats { display: flex; gap: 20px; flex-wrap: wrap; }
+  .banner-stat .bs-label {
+    font-size: 10px; color: #9ca3c0;
+    text-transform: uppercase; letter-spacing: 0.07em;
+    margin-bottom: 2px;
+  }
+  .banner-stat .bs-value {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px; font-weight: 700;
+  }
+
+  /* ── Bar chart ── */
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chart-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px; font-weight: 700; color: #0f1123;
+  }
+  .chart-sub { font-size: 12px; color: #9ca3c0; margin-top: 2px; }
+  .chart-legend { display: flex; gap: 14px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #9ca3c0; }
+  .legend-dot { width: 8px; height: 8px; border-radius: 2px; }
+
+  .bar-chart { display: flex; gap: 5px; align-items: flex-end; height: 110px; }
+  .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .bar-amount { font-size: 9px; color: #9ca3c0; white-space: nowrap; font-weight: 500; }
+  .bar-fill { width: 100%; border-radius: 4px 4px 2px 2px; transition: height .3s; }
+  .bar-label { font-size: 9px; color: #b0b8d4; }
+
+  /* ── Table ── */
+  .table-header {
+    padding: 16px 24px 12px;
+    border-bottom: 1px solid #f1f3fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .table-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px; font-weight: 700; color: #0f1123;
+  }
+  .table-sub { font-size: 12px; color: #9ca3c0; margin-top: 2px; }
+  .table-tags { display: flex; gap: 8px; }
+  .tag {
+    font-size: 10px; font-weight: 600;
+    border-radius: 5px; padding: 3px 8px;
+  }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead tr { background: #f8f9fc; }
+  th {
+    padding: 10px 16px;
+    color: #9ca3c0; font-weight: 500;
+    font-size: 10px; letter-spacing: 0.07em;
+    text-transform: uppercase;
+    border-bottom: 1px solid #e8eaf4;
+    white-space: nowrap;
+  }
+  th.left { text-align: left; }
+  th.right { text-align: right; }
+  tbody tr { border-bottom: 1px solid #f1f3fa; transition: background .1s; }
+  tbody tr:hover td { background: #f1f3fa !important; }
+  td { padding: 10px 16px; }
+  td.right { text-align: right; }
+  tfoot tr { background: #f8f9fc; border-top: 2px solid #e8eaf4; }
+  tfoot td { padding: 12px 16px; }
+  tfoot td.right { text-align: right; }
+
+  .badge {
+    display: inline-block;
+    font-size: 9px; font-weight: 600;
+    border-radius: 4px; padding: 1px 6px;
+    margin-left: 6px; vertical-align: middle;
+  }
+  .conv-pill {
+    background: #f1f3fa; border-radius: 6px;
+    padding: 2px 10px; font-weight: 700; color: #0f1123;
+  }
+
+  /* ── Summary cards ── */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .summary-card {
+    background: #fff;
+    border: 1px solid #e8eaf4;
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.04);
+  }
+  .sc-label {
+    font-size: 10px; color: #9ca3c0;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 7px; font-weight: 500;
+  }
+  .sc-value {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 20px; font-weight: 700;
+  }
+  .sc-sub { font-size: 11px; color: #b0b8d4; margin-top: 4px; }
+
+  .footer {
+    text-align: center; margin-top: 24px;
+    font-size: 11px; color: #c4c9de;
+  }
+
+  ::-webkit-scrollbar { height: 4px; }
+  ::-webkit-scrollbar-track { background: #f1f3fa; }
+  ::-webkit-scrollbar-thumb { background: #d1d5e8; border-radius: 2px; }
+
+  @media (max-width: 800px) {
+    .header { padding: 24px 20px 20px; }
+    .main { padding: 20px 20px 0; }
+    .inputs-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 500px) {
+    .inputs-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <div>
+      <div class="brand">
+        <div class="brand-icon">📈</div>
+        <span class="brand-name">SocialFin Digital</span>
+      </div>
+      <h1>Sacred Institute — 1,000 Enrolment Roadmap</h1>
+      <p class="subtitle">12-month ad budget plan · Ads → Quiz → Results → Nurture Chat → Conversion</p>
+    </div>
+    <div class="header-stats">
+      <div class="stat-pill" style="border: 1.5px solid rgba(99,102,241,.15)">
+        <div class="label">Total Goal</div>
+        <div class="value" style="color:#6366f1">1,000</div>
+      </div>
+      <div class="stat-pill" style="border: 1.5px solid rgba(245,158,11,.15)">
+        <div class="label">From Ads</div>
+        <div class="value" style="color:#f59e0b">800</div>
+      </div>
+      <div class="stat-pill" style="border: 1.5px solid rgba(16,185,129,.15)">
+        <div class="label">Organic</div>
+        <div class="value" style="color:#10b981">200</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- INPUTS -->
+  <div class="card">
+    <div class="card-label">Assumptions</div>
+    <div class="inputs-grid">
+
+      <!-- Q1 budget -->
+      <div class="input-group">
+        <label>Month 1 Budget (fixed)</label>
+        <div class="q1-btns">
+          <button class="q1-btn active" data-val="1000" onclick="setQ1(this)">$1k</button>
+          <button class="q1-btn" data-val="1100" onclick="setQ1(this)">$1.1k</button>
+          <button class="q1-btn" data-val="1200" onclick="setQ1(this)">$1.2k</button>
+        </div>
+        <div class="input-hint">M1 fixed · M2 onward applies the ramp %</div>
+      </div>
+
+      <!-- CPL -->
+      <div class="input-group">
+        <label>Cost Per Lead (CPL)</label>
+        <div class="input-row">
+          <span class="input-prefix" style="color:#f59e0b">SGD $</span>
+          <input id="inp-cpl" class="ci" type="number" value="30" min="1" max="9999"
+            style="color:#f59e0b"
+            oninput="onInput('cpl', this.value)"
+            onblur="onBlur('cpl', this, 1, 9999, 30)" />
+        </div>
+        <div class="input-hint">Using <strong id="hint-cpl" style="color:#f59e0b">$30</strong> · avg cost per lead</div>
+      </div>
+
+      <!-- Close rate -->
+      <div class="input-group">
+        <label>Lead → Conversion Rate</label>
+        <div class="input-row">
+          <input id="inp-cr" class="ci" type="number" value="10" min="1" max="100"
+            style="color:#10b981"
+            oninput="onInput('cr', this.value)"
+            onblur="onBlur('cr', this, 1, 100, 10)" />
+          <span class="input-suffix" style="color:#10b981">%</span>
+        </div>
+        <div class="input-hint">Using <strong id="hint-cr" style="color:#10b981">10%</strong> · 1 in <span id="hint-cr-ratio">10</span> leads</div>
+      </div>
+
+      <!-- Ramp % input -->
+      <div class="input-group">
+        <label>Monthly Budget Increase</label>
+        <div class="input-row">
+          <input id="inp-ramp" class="ci" type="number" value="30" min="1" max="500"
+            style="color:#6366f1"
+            oninput="onInput('ramp', this.value)"
+            onblur="onBlur('ramp', this, 1, 500, 30)" />
+          <span class="input-suffix" style="color:#6366f1">%</span>
+        </div>
+        <div class="input-hint">Using <strong id="hint-ramp" style="color:#6366f1">30%</strong> · applied from M2 onward</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- STATUS BANNER -->
+  <div class="banner" id="banner"></div>
+
+  <!-- BAR CHART -->
+  <div class="card">
+    <div class="chart-header">
+      <div>
+        <div class="chart-title">Monthly Ad Budget — Smooth 30% Ramp</div>
+        <div class="chart-sub" id="chart-sub-text">M1 fixed at $1k · M2 onward compounds +30% each month · SGD</div>
+      </div>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#c7d2fe"></div>M1 fixed</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#6366f1"></div>Scale (+%/mo)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#10b981"></div>Target hit</div>
+      </div>
+    </div>
+    <div class="bar-chart" id="bar-chart"></div>
+  </div>
+
+  <!-- TABLE -->
+  <div class="card" style="padding:0">
+    <div class="table-header">
+      <div>
+        <div class="table-title">Month-by-Month Breakdown</div>
+        <div class="table-sub">$397 course · 1-on-1 session · Trial — all count toward 1,000 target</div>
+      </div>
+      <div class="table-tags">
+        <span class="tag" style="color:#818cf8;background:#eef2ff">M1 FIXED</span>
+        <span class="tag" style="color:#6366f1;background:#f5f3ff">M2–M12 SCALE</span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th class="left">Month</th>
+            <th class="right">Ad Budget</th>
+            <th class="right">CPL</th>
+            <th class="right">Leads</th>
+            <th class="right">Conv. Rate</th>
+            <th class="right">Conversions</th>
+            <th class="right">CPA</th>
+            <th class="right">Cum. Conv.</th>
+            <th class="right">vs 800</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+        <tfoot id="table-foot"></tfoot>
+      </table>
+    </div>
+  </div>
+
+  <!-- SUMMARY CARDS -->
+  <div class="summary-grid" id="summary-grid"></div>
+
+  <div class="footer">
+    Prepared by SocialFin Digital · Projections are estimates based on stated assumptions · Review at Month 3 with real data
+  </div>
+
+</div>
+
+<script>
+const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const ADS_TARGET = 800;
+
+let state = { q1Budget: 1000, cpl: 30, closeRate: 10, rampPct: 30 };
+// track pending (while typing) vs committed values
+let pending = { cpl: "30", cr: "10", ramp: "30" };
+
+function setQ1(btn) {
+  document.querySelectorAll('.q1-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  state.q1Budget = parseInt(btn.dataset.val);
+  render();
+}
+
+function onInput(key, val) {
+  pending[key] = val; // store raw string, don't update state yet
+}
+
+function onBlur(key, input, min, max, fallback) {
+  const parsed = parseFloat(pending[key]);
+  let committed;
+  if (!isNaN(parsed) && parsed >= min && parsed <= max) {
+    committed = parsed;
+  } else if (!isNaN(parsed)) {
+    committed = Math.min(max, Math.max(min, parsed));
+  } else {
+    committed = fallback;
+  }
+  input.value = committed;
+  pending[key] = String(committed);
+  if (key === 'cpl')  state.cpl = committed;
+  if (key === 'cr')   state.closeRate = committed;
+  if (key === 'ramp') state.rampPct = committed;
+  render();
+}
+
+function fmt(n) { return n.toLocaleString('en-US'); }
+function fmtK(n) { return n >= 1000 ? `$${(Math.round(n/100)/10).toFixed(1)}k` : `$${n}`; }
+
+function calcRows() {
+  const { q1Budget, cpl, closeRate, rampPct } = state;
+  const lr = closeRate / 100;
+  const rate = 1 + (rampPct / 100);
+  // M1: fixed at q1Budget. M2 onward: each month = previous * rate
+  const budgets = Array.from({ length: 12 }, (_, i) => {
+    if (i === 0) return q1Budget;
+    return Math.round(q1Budget * Math.pow(rate, i));
+  });
+
+  let rows = [], cumLeads = 0, cumConv = 0, cumSpend = 0;
+  for (let i = 0; i < 12; i++) {
+    const budget = budgets[i];
+    const leads = Math.floor(budget / cpl);
+    const conv = Math.round(leads * lr);
+    const cpa = conv > 0 ? Math.round(budget / conv) : 0;
+    cumLeads += leads; cumConv += conv; cumSpend += budget;
+    rows.push({ budget, leads, conv, cpa, cumLeads, cumConv, cumSpend, isQ1: i === 0 });
+  }
+  return rows;
+}
+
+function render() {
+  const { cpl, closeRate } = state;
+  const rows = calcRows();
+  const last = rows[11];
+  const totalConv   = last.cumConv;
+  const totalSpend  = last.cumSpend;
+  const totalLeads  = last.cumLeads;
+  const avgCPA      = totalConv > 0 ? Math.round(totalSpend / totalConv) : 0;
+  const pct         = ((totalConv / ADS_TARGET) * 100).toFixed(1);
+  const hitTarget   = totalConv >= ADS_TARGET;
+  const targetMonth = rows.findIndex(r => r.cumConv >= ADS_TARGET);
+  const peakBudget  = Math.max(...rows.map(r => r.budget));
+  const gap         = Math.max(0, ADS_TARGET - totalConv);
+  const ratio       = Math.round(100 / closeRate);
+
+  // Update hints
+  document.getElementById('hint-cpl').textContent = `$${cpl}`;
+  document.getElementById('hint-cr').textContent = `${closeRate}%`;
+  document.getElementById('hint-cr-ratio').textContent = ratio;
+  document.getElementById('hint-ramp').textContent = `${state.rampPct}%`;
+  document.getElementById('chart-sub-text').textContent = `M1 fixed at $1k · M2 onward compounds +${state.rampPct}% each month · SGD`;
+
+  // ── Banner ──
+  const banner = document.getElementById('banner');
+  if (hitTarget) {
+    banner.style.background = '#f0fdf8';
+    banner.style.borderColor = '#10b981';
+    banner.innerHTML = `
+      <span class="banner-emoji">✅</span>
+      <div class="banner-text"><span style="color:#065f46;font-weight:600">On track — 800 ad conversions hit by <strong>${MONTHS[targetMonth]}</strong></span></div>
+      ${bannerStats(totalSpend, totalLeads, avgCPA, peakBudget)}`;
+  } else {
+    banner.style.background = '#fffbf0';
+    banner.style.borderColor = '#f59e0b';
+    banner.innerHTML = `
+      <span class="banner-emoji">⚠️</span>
+      <div class="banner-text">
+        <span style="color:#92400e;font-weight:600">This ramp produces ${totalConv} of 800 conversions (${pct}%)</span>
+        <span style="color:#a37020;margin-left:8px;font-size:13px">— ${gap} short. Consider a higher starting budget or better close rate.</span>
+      </div>
+      ${bannerStats(totalSpend, totalLeads, avgCPA, peakBudget)}`;
+  }
+
+  // ── Bar chart ──
+  const chart = document.getElementById('bar-chart');
+  chart.innerHTML = rows.map((row, i) => {
+    const h = Math.max(8, Math.round((row.budget / peakBudget) * 96));
+    const past = row.cumConv >= ADS_TARGET;
+    const bg = row.isQ1
+      ? 'linear-gradient(180deg,#c7d2fe,#a5b4fc)'
+      : past
+        ? 'linear-gradient(180deg,#10b981,#059669)'
+        : 'linear-gradient(180deg,#6366f1,#4f46e5)';
+    return `<div class="bar-col">
+      <div class="bar-amount">${fmtK(row.budget)}</div>
+      <div class="bar-fill" style="height:${h}px;background:${bg}" title="${MONTHS[i]}: $${fmt(row.budget)}"></div>
+      <div class="bar-label">${MONTHS[i]}</div>
+    </div>`;
+  }).join('');
+
+  // ── Table body ──
+  const tbody = document.getElementById('table-body');
+  tbody.innerHTML = rows.map((row, i) => {
+    const justHit = row.cumConv >= ADS_TARGET && (i === 0 || rows[i-1].cumConv < ADS_TARGET);
+    const remaining = Math.max(0, ADS_TARGET - row.cumConv);
+    const isQ1 = row.isQ1;
+    const prevBudget = i > 0 ? rows[i-1].budget : null;
+    const pctChange = (prevBudget && i >= 1)
+      ? `<span style="font-size:10px;color:#10b981;margin-left:5px">+${Math.round(((row.budget - prevBudget)/prevBudget)*100)}%</span>`
+      : '';
+    const rowBg = justHit ? '#f0fdf8' : isQ1 ? '#fafbff' : i % 2 === 0 ? '#fff' : '#fafbfd';
+    const budgetColor = isQ1 ? '#818cf8' : '#6366f1';
+    const trialBadge = isQ1
+      ? `<span class="badge" style="background:#eef2ff;color:#6366f1">FIXED</span>` : '';
+    const hitBadge = justHit
+      ? `<span class="badge" style="background:#10b981;color:#fff">🎯 HIT</span>` : '';
+    const convColor = row.cumConv >= ADS_TARGET ? '#10b981' : '#1a1d2e';
+    const vsCell = remaining === 0
+      ? `<span style="color:#10b981;font-weight:600">✓</span>`
+      : `<span style="color:${remaining < 80 ? '#f59e0b' : '#c4c9de'};font-weight:${remaining < 80 ? 600 : 400}">${remaining}</span>`;
+
+    return `<tr style="background:${rowBg}">
+      <td>
+        ${MONTHS[i]} <span style="color:#c4c9de;font-weight:400;font-size:11px">M${i+1}</span>
+        ${trialBadge}${hitBadge}
+      </td>
+      <td class="right">
+        <span style="font-weight:700;color:${budgetColor};font-size:14px">$${fmt(row.budget)}</span>${pctChange}
+      </td>
+      <td class="right" style="color:#f59e0b;font-weight:500">$${cpl}</td>
+      <td class="right" style="color:#4b5280">${fmt(row.leads)}</td>
+      <td class="right" style="color:#9ca3c0">1 in ${ratio}</td>
+      <td class="right"><span class="conv-pill">${row.conv}</span></td>
+      <td class="right" style="color:#9ca3c0">$${fmt(row.cpa)}</td>
+      <td class="right">
+        <span style="font-weight:700;color:${convColor}">${row.cumConv}</span>
+        <span style="color:#d1d5e8;font-size:11px"> /800</span>
+      </td>
+      <td class="right">${vsCell}</td>
+    </tr>`;
+  }).join('');
+
+  // ── Table footer ──
+  const tfoot = document.getElementById('table-foot');
+  const tc = hitTarget ? '#10b981' : '#ef4444';
+  tfoot.innerHTML = `<tr>
+    <td style="font-weight:700;color:#0f1123">12-Month Total</td>
+    <td class="right" style="font-weight:800;color:#6366f1;font-size:15px">$${fmt(totalSpend)}</td>
+    <td class="right" style="color:#f59e0b">$${cpl}</td>
+    <td class="right" style="font-weight:600;color:#4b5280">${fmt(totalLeads)}</td>
+    <td class="right" style="color:#9ca3c0">${closeRate}%</td>
+    <td class="right" style="font-weight:800;color:${tc};font-size:15px">${totalConv}</td>
+    <td class="right" style="color:#9ca3c0">$${avgCPA}</td>
+    <td class="right" style="font-weight:700;color:${tc}">${totalConv}/800</td>
+    <td class="right" style="font-weight:600;color:${tc}">${hitTarget ? '✓' : gap}</td>
+  </tr>`;
+
+  // ── Summary cards ──
+  const cards = [
+    ["Total Ad Spend",    `$${fmt(totalSpend)}`,     "SGD · 12 months",       "#6366f1"],
+    ["Peak Budget (M12)", `$${fmt(peakBudget)}`,     "SGD · final month",     "#818cf8"],
+    ["Total Leads",       fmt(totalLeads),            `@ $${cpl} CPL`,         "#0ea5e9"],
+    ["Ad Conversions",    `${totalConv}`,             `of 800 · ${pct}%`,      hitTarget ? "#10b981" : "#ef4444"],
+    ["Avg CPA",           `$${avgCPA}`,               "SGD per conversion",    "#f59e0b"],
+    ["Organic Target",    "200",                      "Referrals · SEO · WOM", "#10b981"],
+  ];
+  document.getElementById('summary-grid').innerHTML = cards.map(([label, value, sub, accent]) => `
+    <div class="summary-card">
+      <div class="sc-label">${label}</div>
+      <div class="sc-value" style="color:${accent}">${value}</div>
+      <div class="sc-sub">${sub}</div>
+    </div>`).join('');
+}
+
+function bannerStats(totalSpend, totalLeads, avgCPA, peakBudget) {
+  return `<div class="banner-stats">
+    ${[["Total Spend",`$${fmt(totalSpend)}`,"#6366f1"],["Total Leads",fmt(totalLeads),"#0ea5e9"],["Avg CPA",`$${avgCPA}`,"#f59e0b"],["Peak Budget M12",`$${fmt(peakBudget)}`,"#818cf8"]]
+      .map(([l,v,a]) => `<div class="banner-stat"><div class="bs-label">${l}</div><div class="bs-value" style="color:${a}">${v}</div></div>`).join('')}
+  </div>`;
+}
+
+// Initial render
+render();
+</script>
+</body>
+</html>
